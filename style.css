@@ -1,0 +1,292 @@
+/* General Reset */
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    width: 100%;
+    overflow-x: hidden; /* prevent page scrolling */
+}
+.tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e0f2ff; /* light blue background */
+    height: 50px;
+    padding: 0 10px;
+    gap: 20px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+
+#logoBar {
+    width: 100%;
+    height: 80px; /* adjust to your logo size */
+    background-color: #ffffff; /* or a sky tone, if you prefer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+
+#logoBar img {
+    max-height: 100px;
+    max-width: 300px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+.tab-button {
+    background-color: #b3e0ff; /* default light blue button */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tab-button:hover {
+    background-color: #91d4ff; /* slightly darker blue on hover */
+    transform: translateY(-1px);
+}
+
+.tab-button.active {
+    background-color: #62c3ff; /* even deeper blue for active tab */
+    color: white;
+}
+
+/* Dashboard and Completed Tabs */
+.tab-content {
+    height: calc(100vh - 50px); /* full screen minus tabs */
+}
+
+/* Main container inside dashboard */
+#mainContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Sky Area */
+#sky {
+    flex: 7;
+    position: relative;
+    background-image: url('assets/images/sky.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.balloon {
+    position: absolute;
+    width: 3vw;
+    height: auto;
+    animation: inflate 0.5s ease-out forwards;
+    pointer-events: all;
+    cursor: none;
+    user-select: none;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+
+
+/* Task Input Area */
+.task-input {
+    flex: 1;
+    min-height: 170px;
+    background-color: #e0f2ff;
+    display: flex;
+    align-items: flex-start; /* push inputs to top */
+    justify-content: center; /* center horizontally */
+    gap: 40px;
+    padding: 20px;
+}
+
+
+.task-input button:hover {
+    background-color: #91d4ff;
+    transform: translateY(-1px);
+}
+
+.task-input button {
+    background-color: #b3e0ff;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    height: 40px;
+    box-sizing: border-box;
+}
+
+.task-input input{
+    padding: 10px 14px;
+    font-size: 16px;
+    height: 40px; /* set same height for input and button */
+    box-sizing: border-box;
+}
+
+/* Timeline Lines */
+#timeline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.timeline-line {
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.timeline-label {
+    position: absolute;
+    top: 5px;
+    font-size: 12px;
+    color: black;
+    background: rgba(255,255,255,0.7);
+    padding: 2px 4px;
+    border-radius: 5px;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+#fakeCursor {
+    position: absolute;
+    width: 30px; 
+    height: 30px;
+    background-image: url('assets/images/pin.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 10000;
+    display: none;
+}
+
+
+
+@keyframes bob {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-5px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Confetti Styles */
+.confetti {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: gold;
+    border-radius: 50%;
+    animation: explode 1s ease-out forwards;
+    pointer-events: none;
+}
+
+@keyframes explode {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--translate-x), var(--translate-y)) scale(1.5);
+        opacity: 0;
+    }
+}
+#completed {
+    background-color: #f0f8ff; /* same soft blue as dashboard input */
+    padding: 20px;
+    box-sizing: border-box;
+}
+#completed h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight: 500;
+    font-size: 20px;
+    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+
+.completed-container {
+    width: 100%;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    background-color: white;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Table Styling */
+#completedTasksTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+}
+
+#completedTasksTable th {
+    background-color: #b3e0ff;
+    color: #000;
+    font-weight: 500; /* medium instead of bold */
+    font-family: 'Segoe UI', 'Helvetica Neue', sans-serif; /* cleaner modern font */
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+#completedTasksTable td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+#completedTasksTable tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+
+
+@keyframes inflate {
+    0% {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+#tooltip {
+    position: absolute;
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 8px 10px;
+    border-radius: 8px;
+    font-size: 12px;
+    pointer-events: none; /* tooltip doesn't block clicks */
+    white-space: nowrap;
+    z-index: 1000;
+}

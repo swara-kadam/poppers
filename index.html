@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html lang = "en">
+    <head>
+        <meta charset = "UTF-8">
+        <meta name = "viewport" content = "width = device-width, initial-scale = 1.0">
+        <title>Poppers!</title>
+        <link rel = "stylesheet" href = "style.css">
+
+    </head>
+    <body>
+
+        <div id="logoBar">
+            <img src="/assets/images/logo.png" alt="Poppers Logo">
+        </div>
+        
+        <div class = "tabs">
+            <button class = "tab-button active" onclick = "openTab('dashboard')">Dashboard</button>
+            <button class = "tab-button" onclick = "openTab('completed')">Completed Tasks</button>
+        </div>
+
+        <div id = "dashboard" class = "tab-content">
+            <div id = "mainContainer">
+                <div id = "sky">
+                    <div id = "timeline">
+
+                    </div>
+                    <div id = "balloons"></div>
+                </div>
+
+                <div class = "task-input">
+                    <input type = "text" id = "taskTitle" placeholder="Enter Task Title">
+                    <input type = "date" id = "taskDueDate">
+                    <button onclick = "addTask()">Add Task</button>
+                </div>
+            </div>
+        </div>
+
+        <div id = "completed" class = "tab-content">
+            <h2>Completed Tasks</h2>
+            <table id = "completedTasksTable">
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Created</th>
+                        <th>Due</th>
+                        <th>Completed</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+
+        <div id="fakeCursor"></div>
+
+        <div id="tooltip" style="display:none;"></div>
+
+        <script src = "app.js"></script>
+    </body>
+</html>
