@@ -21,7 +21,7 @@
 
 | Dashboard View | Hover with Tooltip | Completed Tasks | Confetti Pop |
 |----------------|--------------------|------------------|---------------|
-| ![Dashboard](assets/screenshots/dashboard.png) | ![Tooltip](assets/screenshots/hover-tooltip.png) | ![Completed](assets/screenshots/completed-tasks.png) | ![Pop](assets/screenshots/confetti.png) |
+| ![Dashboard](screenshots/dashboard.png) | ![Tooltip](screenshots/hover-tooltip.png) | ![Completed](screenshots/completed-tasks.png) | ![Pop](screenshots/confetti.png) |
 
 ---
 
